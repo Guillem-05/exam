@@ -4,9 +4,9 @@ require_once "Lamp.php";
 
 class Lighting extends Connection {
     public function getAllLamps() {
-        $sql = "SELECT lamps.lamp_id, lamps.lamp_name, lamps.lamp_on AS lamp_active, lamp_models.model_part_number, lamp_models.model_wattage 
+        $sql = "SELECT lamps.lamp_id, lamps.lamp_name, lamps.lamp_on lamp_models.model_part_number, lamp_models.model_wattage, zones.zone_name
                 FROM lamps 
-                INNER JOIN lamp_models ON lamps.lamp_model = lamp_models.model_id 
+                INNER JOIN lamp_models ON lamps.lamp_model = lamp_models.model_id  
                 INNER JOIN zones ON lamps.lamp_zone = zones.zone_id 
                 ORDER BY lamps.lamp_id";
 
